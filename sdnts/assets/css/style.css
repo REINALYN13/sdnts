@@ -1,0 +1,367 @@
+/* ============================================================
+   SDNTS — Global Design System
+   Extends the palette/typography already established in
+   dashboard.php to every page in the system. Overrides Bootstrap
+   5 component classes only — no markup/JS/PHP logic is touched.
+   Load this AFTER bootstrap.min.css and AFTER assets/css/style.css
+   in includes/header.php:
+   <link rel="stylesheet" href="<?= SITE_URL ?>/assets/css/sis-theme.css">
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
+
+:root{
+  --navy-900:#10233F;
+  --navy-800:#152C4C;
+  --navy-700:#1B3A63;
+  --navy-500:#2F5687;
+  --navy-100:#E7EEF6;
+  --gold-500:#B8862E;
+  --gold-100:#FBF1DD;
+  --sage-600:#3E7A5B;
+  --sage-100:#E4F1EA;
+  --plum-600:#5B4B8A;
+  --plum-100:#EDE9F6;
+  --brick-600:#B5432F;
+  --brick-100:#F8E7E2;
+  --sky-500:#2C7BB0;
+  --sky-100:#E5F1F8;
+  --cream-50:#F7F5F0;
+  --ink-900:#1A1D23;
+  --ink-600:#565C66;
+  --ink-400:#8A909B;
+  --line:#E7E3D9;
+  --radius:12px;
+  --radius-sm:8px;
+  --radius-lg:16px;
+  --shadow-sm:0 1px 2px rgba(16,35,63,.06), 0 1px 3px rgba(16,35,63,.04);
+  --shadow-md:0 8px 22px rgba(16,35,63,.08);
+  --font-display:'Fraunces', Georgia, serif;
+  --font-body:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* ---------- Base ---------- */
+body{
+  font-family: var(--font-body);
+  background: var(--cream-50);
+  color: var(--ink-900);
+  font-size: 0.925rem;
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: var(--font-display);
+  color: var(--navy-900);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+a{ color: var(--navy-700); }
+a:hover{ color: var(--navy-900); }
+code{
+  font-family: var(--font-mono);
+  color: var(--plum-600);
+  background: var(--plum-100);
+  padding: .15em .45em;
+  border-radius: 6px;
+  font-size: .85em;
+}
+
+/* ---------- Breadcrumb ---------- */
+.breadcrumb{
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  letter-spacing: .01em;
+}
+.breadcrumb-item a{ color: var(--ink-600); text-decoration:none; }
+.breadcrumb-item a:hover{ color: var(--navy-700); }
+.breadcrumb-item.active{ color: var(--gold-500); font-weight: 600; }
+.breadcrumb-item + .breadcrumb-item::before{ color: var(--ink-400); }
+
+/* Page title icon accent */
+h4 > i.text-primary,
+h4 > i.text-warning{ color: var(--gold-500) !important; }
+
+/* ---------- Cards ---------- */
+.card{
+  border: 1px solid var(--line) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+.card.shadow-sm{ box-shadow: var(--shadow-sm) !important; }
+.card-header{
+  background: #fff !important;
+  border-bottom: 1px solid var(--line) !important;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--navy-900);
+}
+.card-header.bg-primary{
+  background: var(--navy-900) !important;
+  color: #fff !important;
+  border-bottom: none !important;
+}
+.card-footer{
+  background: var(--cream-50) !important;
+  border-top: 1px solid var(--line) !important;
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: .85rem;
+  letter-spacing: .01em;
+  transition: transform .12s ease, box-shadow .12s ease, background .15s ease, color .15s ease;
+}
+.btn:active{ transform: translateY(1px); }
+
+.btn-primary{
+  background: var(--navy-800);
+  border-color: var(--navy-800);
+}
+.btn-primary:hover, .btn-primary:focus{
+  background: var(--navy-900);
+  border-color: var(--navy-900);
+}
+.btn-outline-primary{
+  color: var(--navy-700);
+  border-color: var(--navy-700);
+}
+.btn-outline-primary:hover{
+  background: var(--navy-700);
+  border-color: var(--navy-700);
+}
+.btn-success{ background: var(--sage-600); border-color: var(--sage-600); }
+.btn-success:hover{ background:#336a4e; border-color:#336a4e; }
+.btn-outline-success{ color: var(--sage-600); border-color: var(--sage-600); }
+.btn-outline-success:hover{ background: var(--sage-600); border-color: var(--sage-600); }
+
+.btn-warning{ background: var(--gold-500); border-color: var(--gold-500); color:#fff; }
+.btn-warning:hover{ background:#9c7126; border-color:#9c7126; color:#fff; }
+.btn-outline-warning{ color: var(--gold-500); border-color: var(--gold-500); }
+.btn-outline-warning:hover{ background: var(--gold-500); border-color: var(--gold-500); color:#fff; }
+
+.btn-danger{ background: var(--brick-600); border-color: var(--brick-600); }
+.btn-danger:hover{ background:#943625; border-color:#943625; }
+.btn-outline-danger{ color: var(--brick-600); border-color: var(--brick-600); }
+.btn-outline-danger:hover{ background: var(--brick-600); border-color: var(--brick-600); }
+
+.btn-secondary{ background: var(--ink-600); border-color: var(--ink-600); }
+.btn-outline-secondary{ color: var(--ink-600); border-color: var(--line); }
+.btn-outline-secondary:hover{ background: var(--ink-600); border-color: var(--ink-600); }
+
+.btn-lg{ border-radius: var(--radius); }
+.btn-sm{ border-radius: 6px; font-size: .78rem; }
+.btn-group-sm > .btn{ border-radius: 6px; }
+
+/* ---------- Badges ---------- */
+.badge{
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: .01em;
+  border-radius: 999px;
+  padding: .4em .75em;
+}
+.badge.bg-primary{ background: var(--navy-700) !important; }
+.badge.bg-success{ background: var(--sage-600) !important; }
+.badge.bg-warning{ background: var(--gold-500) !important; color:#fff !important; }
+.badge.bg-danger{ background: var(--brick-600) !important; }
+.badge.bg-secondary{ background: var(--ink-400) !important; }
+.badge.bg-info{ background: var(--sky-500) !important; }
+
+/* ---------- Tables ---------- */
+.table{
+  font-size: .875rem;
+  --bs-table-hover-bg: var(--cream-50);
+}
+.table thead th{
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-weight: 700;
+  color: var(--ink-600);
+  border-bottom: 2px solid var(--line) !important;
+}
+.table-light, .table > :not(caption) > * > *.table-light{
+  background: #FCFBF8 !important;
+}
+.table-primary, .table > :not(caption) > * > *.table-primary{
+  background: var(--navy-100) !important;
+}
+.table td, .table th{ border-color: var(--line); vertical-align: middle; }
+.table-hover > tbody > tr:hover > *{ background: var(--cream-50); }
+.table-bordered{ border-color: var(--line); }
+.table-bordered th, .table-bordered td{ border-color: var(--line); }
+
+/* ---------- Forms ---------- */
+.form-label{ font-weight: 600; font-size: .84rem; color: var(--ink-900); }
+.form-control, .form-select{
+  border-color: var(--line);
+  border-radius: var(--radius-sm);
+  font-size: .875rem;
+  padding: .55rem .8rem;
+}
+.form-control:focus, .form-select:focus{
+  border-color: var(--navy-500);
+  box-shadow: 0 0 0 .2rem rgba(47,86,135,.15);
+}
+.input-group-text{
+  background: var(--cream-50);
+  border-color: var(--line);
+  color: var(--ink-600);
+}
+.form-check-input:checked{
+  background-color: var(--navy-700);
+  border-color: var(--navy-700);
+}
+
+/* ---------- Modals ---------- */
+.modal-content{
+  border: none;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+.modal-header{
+  border-bottom: 1px solid var(--line);
+  padding: 1.1rem 1.4rem;
+}
+.modal-header.bg-primary{
+  background: var(--navy-900) !important;
+}
+.modal-header .modal-title{
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+.modal-footer{
+  border-top: 1px solid var(--line);
+  background: var(--cream-50);
+}
+
+/* ---------- Alerts / Flash messages ---------- */
+.alert{
+  border: none;
+  border-left: 4px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: .875rem;
+}
+.alert-success{ background: var(--sage-100); color: #2b5940; border-left-color: var(--sage-600); }
+.alert-danger{ background: var(--brick-100); color: #8a3221; border-left-color: var(--brick-600); }
+.alert-warning{ background: var(--gold-100); color: #8a641f; border-left-color: var(--gold-500); }
+.alert-info{ background: var(--sky-100); color: #1f5f82; border-left-color: var(--sky-500); }
+.alert-secondary{ background: #F0EEE7; color: var(--ink-600); border-left-color: var(--ink-400); }
+
+/* ---------- Nav tabs ---------- */
+.nav-tabs{ border-bottom: 1px solid var(--line); }
+.nav-tabs .nav-link{
+  border: none;
+  color: var(--ink-600);
+  font-weight: 600;
+  font-size: .85rem;
+  padding: .65rem 1.1rem;
+  border-radius: 0;
+}
+.nav-tabs .nav-link.active{
+  color: var(--navy-900);
+  background: transparent;
+  border-bottom: 2px solid var(--gold-500);
+}
+.nav-tabs .nav-link:hover{ color: var(--navy-700); border-color: transparent; }
+
+/* ---------- List group ---------- */
+.list-group-item{ border-color: var(--line); font-size: .875rem; }
+.list-group-item-action.active{
+  background: var(--navy-900) !important;
+  border-color: var(--navy-900) !important;
+}
+
+/* ---------- Pagination (DataTables / Bootstrap) ---------- */
+.pagination .page-link{
+  color: var(--navy-700);
+  border-color: var(--line);
+  font-size: .82rem;
+}
+.pagination .page-item.active .page-link{
+  background: var(--navy-800);
+  border-color: var(--navy-800);
+}
+.pagination .page-link:hover{ background: var(--cream-50); color: var(--navy-900); }
+
+/* ---------- Search / DataTables filter box ---------- */
+.dataTables_filter input, .dataTables_length select{
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: .4rem .7rem;
+  font-size: .82rem;
+}
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter{
+  font-size: .8rem;
+  color: var(--ink-600);
+}
+
+/* ---------- Misc ---------- */
+hr{ border-color: var(--line); opacity: 1; }
+.text-muted{ color: var(--ink-400) !important; }
+.small, small{ font-size: .8em; }
+::selection{ background: var(--gold-100); color: var(--navy-900); }
+
+/* Scrollbar (webkit) for a more polished feel */
+::-webkit-scrollbar{ width: 10px; height: 10px; }
+::-webkit-scrollbar-track{ background: var(--cream-50); }
+::-webkit-scrollbar-thumb{ background: #D8D3C6; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover{ background: var(--ink-400); }
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 767.98px){
+  h4{ font-size: 1.15rem; }
+  .btn{ font-size: .8rem; }
+  .card-body{ padding: 1rem; }
+  .table{ font-size: .8rem; }
+}
+
+/* ---------- Print (report pages open in new tab) ---------- */
+@media print{
+  .btn, .breadcrumb, nav, .no-print{ display: none !important; }
+}
+
+/* ---------- School Logo ---------- */
+.site-navbar .school-logo {
+    width: 30x;
+    height: 30px;
+    min-width: 30px;
+    object-fit: contain;
+    display: block;
+    border-radius: 50%;
+    background: #fff;
+    padding: 2px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Keep the logo and school name vertically aligned */
+.site-navbar .school-logo {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    object-fit: contain;
+    display: block;
+    border-radius: 50%;
+    background: #fff;
+    padding: 1px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Slightly smaller logo on mobile */
+@media (max-width: 767.98px) {
+    .site-navbar .school-logo {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+    }
+
+    .site-navbar .navbar-brand {
+        font-size: 1rem;
+    }
+}
